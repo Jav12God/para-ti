@@ -3,36 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amor 💙</title>
+  <title>Para ti 💙</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Pantalla contraseña -->
+  <!-- CONTRASEÑA -->
   <div id="login">
-    <h2>Ingresa la contraseña 💙</h2>
+    <p class="frase">oye amor… te paso la contraseña si me das un beso 😘</p>
     <input type="password" id="password" placeholder="Contraseña">
     <button onclick="checkPassword()">Entrar</button>
     <p id="error"></p>
   </div>
 
-  <!-- Contenido principal -->
-  <div id="content" class="hidden">
-    <img src="rosa.png" class="btn esquina" onclick="openImage()">
+  <!-- SITIO -->
+  <div id="site" class="hidden">
+    <p class="frase arriba">
+      sé que estás ansiosa por tu regalo… pero tranquila jaja 💙
+    </p>
+
+    <img src="rosa.png" class="btn esquina" onclick="openCart()">
     <img src="morado.png" class="btn centro" onclick="openVideo()">
   </div>
 
-  <!-- Imagen cart -->
-  <div id="imageView" class="overlay hidden">
+  <!-- CART -->
+  <div id="cartView" class="overlay hidden">
     <img src="cart.png" class="full">
-    <button class="back" onclick="closeAll()">← Volver</button>
+    <button class="back" onclick="closeAll()">← volver</button>
   </div>
 
-  <!-- Video + música -->
+  <!-- VIDEO -->
   <div id="videoView" class="overlay hidden">
-    <video id="video" src="Morado1.webm" autoplay loop playsinline></video>
-    <audio id="music" src="musica.mp3" loop></audio>
-    <button class="back" onclick="closeVideo()">← Volver</button>
+    <video id="video" src="Morado1.webm" playsinline></video>
+    <button class="back" onclick="closeVideo()">← volver</button>
   </div>
 
   <script src="script.js"></script>
