@@ -1,77 +1,88 @@
-body {
+* {
   margin: 0;
-  height: 100vh;
-  background: url("Amor/fondo1.jpg") no-repeat center center/cover;
+  padding: 0;
+  box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
 
-/* Caja contraseña */
-.password-box {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+body {
+  background: url("fondo1.jpg") no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+}
+
+/* Login */
+#login {
   background: rgba(255,255,255,0.9);
-  padding: 15px;
+  padding: 20px;
   border-radius: 12px;
+  width: 90%;
+  max-width: 300px;
+  margin: auto;
+  margin-top: 35vh;
   text-align: center;
 }
 
-.password-box button {
-  background: #1e90ff;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 6px 14px;
-  cursor: pointer;
+#login input, #login button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
 }
 
-/* Botones imagen */
+/* Contenido */
+.hidden { display: none; }
+
+#content {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+/* Botones */
 .btn {
-  position: absolute;
-  width: 90px;
+  width: 80px;
+  max-width: 25vw;
   cursor: pointer;
 }
 
-.rosa {
-  top: 20px;
-  right: 20px;
+.esquina {
+  position: absolute;
+  top: 15px;
+  left: 15px;
 }
 
-.morado {
-  bottom: 20px;
-  right: 20px;
+.centro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-/* Pantalla completa */
+/* Overlay */
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
+  background: black;
   width: 100%;
   height: 100%;
-  background: rgba(240,248,255,0.95);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  z-index: 10;
 }
 
-.contenido {
-  max-width: 90%;
-  max-height: 80%;
+.full, video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
-/* Volver */
-.volver {
-  align-self: flex-start;
-  margin: 20px;
-  cursor: pointer;
-  font-size: 18px;
-  color: #0a3d62;
+/* Botón volver */
+.back {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 10px 15px;
+  background: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
 }
-
-.oculto {
-  display: none;
-}
-
