@@ -1,69 +1,74 @@
 body {
   margin: 0;
   height: 100vh;
-  font-family: Arial, sans-serif;
   background: url("Amor/fondo1.jpg") no-repeat center center/cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-family: Arial, sans-serif;
 }
 
-.login, .contenido {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 25px;
-  border-radius: 15px;
+/* Caja contraseña */
+.password-box {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.9);
+  padding: 15px;
+  border-radius: 12px;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 50, 0.3);
 }
 
-h1 {
-  color: #0a3d62;
-}
-
-input {
-  padding: 10px;
-  width: 80%;
-  border-radius: 8px;
-  border: 1px solid #0a3d62;
-}
-
-button {
-  margin-top: 10px;
-  padding: 10px 20px;
+.password-box button {
   background: #1e90ff;
+  color: white;
   border: none;
   border-radius: 8px;
-  color: white;
-  font-size: 16px;
+  padding: 6px 14px;
   cursor: pointer;
 }
 
-button:hover {
-  background: #0a3d62;
-}
-
-.botones img {
-  width: 120px;
-  margin: 15px;
+/* Botones imagen */
+.btn {
+  position: absolute;
+  width: 90px;
   cursor: pointer;
 }
 
-#carta {
-  width: 90%;
-  max-width: 500px;
-  margin-top: 20px;
+.rosa {
+  top: 20px;
+  right: 20px;
 }
 
-video {
-  width: 90%;
-  max-width: 500px;
-  margin-top: 20px;
+.morado {
+  bottom: 20px;
+  right: 20px;
 }
 
+/* Pantalla completa */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(240,248,255,0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenido {
+  max-width: 90%;
+  max-height: 80%;
+}
+
+/* Volver */
 .volver {
-  background: transparent;
-  color: #0a3d62;
+  align-self: flex-start;
+  margin: 20px;
+  cursor: pointer;
   font-size: 18px;
+  color: #0a3d62;
 }
 
 .oculto {
