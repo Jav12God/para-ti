@@ -3,37 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <title>Para ti 💙</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
-  <!-- Contraseña (solo muestra mensaje) -->
+  <h1>Solo tú puedes entrar 💙</h1>
+
+  <!-- Contraseña -->
   <div class="password-box">
     <input type="password" id="password" placeholder="Contraseña">
-    <button onclick="verificar()">Entrar</button>
+    <button id="btnPassword">Entrar</button>
     <p id="mensaje"></p>
   </div>
 
-  <!-- Botón rosa (carta) -->
-  <img src="Amor/rosa.png" class="btn rosa" onclick="abrirCarta()" alt="Carta">
+  <!-- Botón rosa -->
+  <img src="Amor/rosa.png" class="btn rosa" id="btnCarta">
 
-  <!-- Botón morado (video) -->
-  <img src="Amor/morado.png" class="btn morado" onclick="abrirVideo()" alt="Video">
+  <!-- Botón morado -->
+  <img src="Amor/morado.png" class="btn morado" id="btnVideo">
 
   <!-- Carta -->
   <div id="carta" class="overlay oculto">
-    <span class="volver" onclick="cerrar()">⬅ Volver</span>
+    <span class="volver" id="cerrarCarta">⬅ Volver</span>
     <img src="Amor/cart.png" class="contenido">
   </div>
 
   <!-- Video -->
   <div id="videoBox" class="overlay oculto">
-    <span class="volver" onclick="cerrar()">⬅ Volver</span>
+    <span class="volver" id="cerrarVideo">⬅ Volver</span>
     <video controls class="contenido">
-      <source src="Amor/morado1.mov" type="video/mp4">
+      <source src="Amor/morado1.mov">
     </video>
   </div>
 
-  <script src="script.js"></script>
+  <script src="./script.js"></script>
 </body>
 </html>
+
