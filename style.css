@@ -9,15 +9,29 @@ body {
   background: url("fondo1.jpg") no-repeat center center fixed;
   background-size: cover;
   height: 100vh;
+  color: #0a3d62;
+}
+
+/* Frases */
+.frase {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.arriba {
+  position: absolute;
+  top: 15px;
+  width: 100%;
 }
 
 /* Login */
 #login {
-  background: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.92);
   padding: 20px;
-  border-radius: 12px;
+  border-radius: 14px;
   width: 90%;
-  max-width: 300px;
+  max-width: 320px;
   margin: auto;
   margin-top: 35vh;
   text-align: center;
@@ -25,17 +39,17 @@ body {
 
 #login input, #login button {
   width: 100%;
-  margin-top: 10px;
   padding: 10px;
+  margin-top: 10px;
 }
 
-/* Contenido */
+/* Sitio */
 .hidden { display: none; }
 
-#content {
+#site {
+  position: relative;
   width: 100%;
   height: 100vh;
-  position: relative;
 }
 
 /* Botones */
@@ -47,8 +61,8 @@ body {
 
 .esquina {
   position: absolute;
-  top: 15px;
-  left: 15px;
+  bottom: 20px;
+  left: 20px;
 }
 
 .centro {
@@ -61,11 +75,8 @@ body {
 /* Overlay */
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   background: black;
-  width: 100%;
-  height: 100%;
   z-index: 10;
 }
 
@@ -75,14 +86,14 @@ body {
   object-fit: contain;
 }
 
-/* Botón volver */
+/* Volver */
 .back {
   position: absolute;
   top: 15px;
   left: 15px;
-  padding: 10px 15px;
+  padding: 10px 14px;
   background: white;
   border: none;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: 10px;
 }
+
