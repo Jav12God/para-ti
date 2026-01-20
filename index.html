@@ -1,46 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Para ti 💙</title>
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
-  <h1>Solo tú puedes entrar 💙</h1>
+  <!-- Mensajito juguetón -->
+  <div class="top-note">oye amor… te paso la contraseña si me das un beso 😘</div>
 
-  <!-- Contraseña -->
+  <!-- Caja contraseña -->
   <div class="password-box">
-    <p class="frase">¿bastante cerca… o quizá no? 😏</p>
     <input type="password" id="password" placeholder="Contraseña">
     <button id="btnPassword">Entrar</button>
-    <p id="mensaje"></p>
+    <p id="mensaje" class="mensaje"></p>
   </div>
 
-  <!-- Botón rosa -->
-  <img src="Amor/rosa.png" class="btn rosa bloqueado" id="btnCarta">
+  <!-- CONTENIDO VISIBLE AL ABRIR (botones y cosas) -->
+  <div id="main" class="main">
 
-  <!-- Botón morado -->
-  <img src="Amor/morado.png" class="btn morado bloqueado" id="btnVideo">
+    <!-- Botón rosa: esquina -->
+    <img src="Amor/rosa.png" alt="Carta" id="btnCarta" class="btn esquina" title="Ver carta">
 
-  <!-- Carta -->
-  <div id="carta" class="overlay oculto">
-    <span class="volver" id="cerrarCarta">⬅ Volver</span>
-    <img src="Amor/cart.png" class="contenido">
+    <!-- Botón morado: centro -->
+    <img src="Amor/morado.png" alt="Video" id="btnVideo" class="btn centro" title="Ver video">
+
   </div>
 
-  <!-- Video -->
-  <div id="videoBox" class="overlay oculto">
-    <span class="volver" id="cerrarVideo">⬅ Volver</span>
-    <video id="videoRomantico" controls class="contenido" playsinline>
+  <!-- Overlay: CART -->
+  <div id="cartView" class="overlay hidden">
+    <button class="back" id="closeCart">← volver</button>
+    <img src="Amor/cart.png" alt="Cart" class="overlay-media">
+  </div>
+
+  <!-- Overlay: VIDEO -->
+  <div id="videoView" class="overlay hidden">
+    <button class="back" id="closeVideo">← volver</button>
+    <video id="videoPlayer" class="overlay-media" playsinline controls>
       <source src="Amor/Morado1.webm" type="video/webm">
-      Tu navegador no soporta este video 💙
+      Tu navegador no soporta este video.
     </video>
   </div>
 
   <script src="./script.js"></script>
 </body>
 </html>
-
-
