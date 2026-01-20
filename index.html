@@ -2,25 +2,33 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Para ti ❤️</title>
+  <title>Para ti 💙</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Para la persona más especial de mi vida 💖</h1>
-    <p>Si estás aquí, es porque eres tú…</p>
 
+  <div class="login" id="login">
+    <h1>Solo tú puedes entrar 💙</h1>
     <input type="password" id="password" placeholder="Contraseña">
-    <button onclick="verCarta()">Entrar</button>
-
+    <button onclick="entrar()">Entrar</button>
     <p id="mensaje"></p>
+  </div>
 
-    <div id="pdf" class="oculto">
-      <iframe src="carta.pdf"></iframe>
+  <div class="contenido oculto" id="contenido">
+    <button class="volver" onclick="volver()">⬅ Volver</button>
+
+    <div class="botones">
+      <img src="Amor/rosa.png" onclick="abrirCarta()" alt="Carta">
+      <img src="Amor/morado.png" onclick="abrirVideo()" alt="Video">
     </div>
+
+    <img src="Amor/cart.png" id="carta" class="oculto">
+    
+    <video id="video" class="oculto" controls>
+      <source src="Amor/morado1.mov" type="video/mp4">
+    </video>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
