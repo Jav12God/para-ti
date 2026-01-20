@@ -4,41 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Para ti 💙</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
-  <!-- CONTRASEÑA -->
-  <div id="login">
-    <p class="frase">oye amor… te paso la contraseña si me das un beso 😘</p>
+  <h1>Solo tú puedes entrar 💙</h1>
+
+  <!-- Contraseña -->
+  <div class="password-box">
+    <p class="frase">¿bastante cerca… o quizá no? 😏</p>
     <input type="password" id="password" placeholder="Contraseña">
-    <button onclick="checkPassword()">Entrar</button>
-    <p id="error"></p>
+    <button id="btnPassword">Entrar</button>
+    <p id="mensaje"></p>
   </div>
 
-  <!-- SITIO -->
-  <div id="site" class="hidden">
-    <p class="frase arriba">
-      sé que estás ansiosa por tu regalo… pero tranquila jaja 💙
-    </p>
+  <!-- Botón rosa -->
+  <img src="Amor/rosa.png" class="btn rosa bloqueado" id="btnCarta">
 
-    <img src="rosa.png" class="btn esquina" onclick="openCart()">
-    <img src="morado.png" class="btn centro" onclick="openVideo()">
+  <!-- Botón morado -->
+  <img src="Amor/morado.png" class="btn morado bloqueado" id="btnVideo">
+
+  <!-- Carta -->
+  <div id="carta" class="overlay oculto">
+    <span class="volver" id="cerrarCarta">⬅ Volver</span>
+    <img src="Amor/cart.png" class="contenido">
   </div>
 
-  <!-- CART -->
-  <div id="cartView" class="overlay hidden">
-    <img src="cart.png" class="full">
-    <button class="back" onclick="closeAll()">← volver</button>
+  <!-- Video -->
+  <div id="videoBox" class="overlay oculto">
+    <span class="volver" id="cerrarVideo">⬅ Volver</span>
+    <video id="videoRomantico" controls class="contenido" playsinline>
+      <source src="Amor/Morado1.webm" type="video/webm">
+      Tu navegador no soporta este video 💙
+    </video>
   </div>
 
-  <!-- VIDEO -->
-  <div id="videoView" class="overlay hidden">
-    <video id="video" src="Morado1.webm" playsinline></video>
-    <button class="back" onclick="closeVideo()">← volver</button>
-  </div>
-
-  <script src="script.js"></script>
+  <script src="./script.js"></script>
 </body>
 </html>
+
 
