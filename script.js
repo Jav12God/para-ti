@@ -1,60 +1,66 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   const btnPassword = document.getElementById("btnPassword");
-  const btnCarta = document.getElementById("btnCarta");
-  const btnVideo = document.getElementById("btnVideo");
+  const inputPassword = document.getElementById("password");
   const mensaje = document.getElementById("mensaje");
 
-  const carta = document.getElementById("carta");
-  const videoBox = document.getElementById("videoBox");
-  const video = document.getElementById("videoRomantico");
+  const btnCarta = document.getElementById("btnCarta");
+  const btnVideo = document.getElementById("btnVideo");
 
-  const cerrarCarta = document.getElementById("cerrarCarta");
-  const cerrarVideo = document.getElementById("cerrarVideo");
+  const cartView = document.getElementById("cartView");
+  const videoView = document.getElementById("videoView");
 
-  let acceso = false;
+  const closeCart = document.getElementById("closeCart");
+  const closeVideo = document.getElementById("closeVideo");
 
-  // Contraseña
+  const videoPlayer = document.getElementById("videoPlayer");
+
+  // Contraseña: solo muestra mensaje (todo visible al abrir el sitio)
   btnPassword.addEventListener("click", () => {
-    const pass = document.getElementById("password").value;
-
+    const pass = inputPassword.value.trim();
     if (pass === "172513") {
       mensaje.textContent = "oye amor… ahora sí 😘";
       mensaje.style.color = "blue";
-      acceso = true;
-
-      btnCarta.classList.remove("bloqueado");
-      btnVideo.classList.remove("bloqueado");
     } else {
       mensaje.textContent = "suerte la próxima corazón 💙";
       mensaje.style.color = "blue";
     }
   });
 
-  // Abrir carta
+  // Abrir carta (overlay)
   btnCarta.addEventListener("click", () => {
-    if (!acceso) return;
-    carta.classList.remove("oculto");
+    cartView.classList.remove("hidden");
   });
 
-  // Abrir video
+  // Abrir video (overlay + play). user gesture from click allows playback with sound.
   btnVideo.addEventListener("click", () => {
-    if (!acceso) return;
-    video.currentTime = 0;
-    video.play();
-    videoBox.classList.remove("oculto");
+    videoView.classList.remove("hidden");
+    // ensure playback starts from 0
+    try {
+      videoPlayer.currentTime = 0;
+      videoPlayer.play();
+    } catch (e) {
+      // some browsers block auto-play with sound until user interacts; but this is triggered by click so should be fine
+      console.warn("No se pudo reproducir automáticamente:", e);
+    }
   });
 
-  // Cerrar carta
-  cerrarCarta.addEventListener("click", () => {
-    carta.classList.add("oculto");
+  // Cerrar cart
+  closeCart.addEventListener("click", () => {
+    cartView.classList.add("hidden");
   });
 
-  // Cerrar video
-  cerrarVideo.addEventListener("click", () => {
-    video.pause();
-    video.currentTime = 0;
-    videoBox.classList.add("oculto");
+  // Cerrar video (pause + reset)
+  closeVideo.addEventListener("click", () => {
+    videoPlayer.pause();
+    try { videoPlayer.currentTime = 0; } catch(e){}
+    videoView.classList.add("hidden");
   });
 
+  // Hide overlays if user taps outside media (optional)
+  cartView.addEventListener("click", (e) => {
+    if (e.target === cartView) closeCart.click();
+  });
+  videoView.addEventListener("click", (e) => {
+    if (e.target === videoView) closeVideo.click();
+  });
 });
