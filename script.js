@@ -4,28 +4,29 @@ function checkPassword() {
 
   if (pass === "172513") {
     document.getElementById("login").classList.add("hidden");
-    document.getElementById("content").classList.remove("hidden");
+    document.getElementById("site").classList.remove("hidden");
   } else {
-    error.textContent = "Suerte la próxima, corazón 💔";
+    error.textContent = "suerte la próxima corazón 💔";
   }
 }
 
-function openImage() {
-  document.getElementById("imageView").classList.remove("hidden");
+function openCart() {
+  document.getElementById("cartView").classList.remove("hidden");
 }
 
 function openVideo() {
+  const video = document.getElementById("video");
   document.getElementById("videoView").classList.remove("hidden");
-  document.getElementById("video").play();
-  document.getElementById("music").play();
+  video.currentTime = 0;
+  video.play();
 }
 
 function closeAll() {
-  document.getElementById("imageView").classList.add("hidden");
+  document.getElementById("cartView").classList.add("hidden");
 }
 
 function closeVideo() {
+  const video = document.getElementById("video");
+  video.pause();
   document.getElementById("videoView").classList.add("hidden");
-  document.getElementById("video").pause();
-  document.getElementById("music").pause();
 }
