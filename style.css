@@ -1,99 +1,163 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+/* Reset pequeño */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root{
+  --blue-dark: #0a3d62;
+  --blue: #1e90ff;
+  --white: #ffffff;
 }
 
+/* Fondo principal (fallback azul-blanco + imagen) */
 body {
-  background: url("fondo1.jpg") no-repeat center center fixed;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--blue-dark);
+  background:
+    linear-gradient(135deg, #e9f4ff 0%, #ffffff 100%),
+    url("Amor/fondo1.jpg") no-repeat center center fixed;
   background-size: cover;
-  height: 100vh;
-  color: #0a3d62;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Frases */
-.frase {
+/* Nota superior (pequeña) */
+.top-note {
+  position: fixed;
+  top: 12px;
+  width: 100%;
   text-align: center;
-  margin-bottom: 15px;
+  color: var(--blue-dark);
+  font-size: 0.95rem;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Caja de contraseña */
+.password-box {
+  position: fixed;
+  top: 55px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.92);
+  border-radius: 12px;
+  padding: 12px;
+  width: calc(100% - 40px);
+  max-width: 360px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(10, 61, 98, 0.15);
+  z-index: 6;
+}
+
+.password-box input{
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(10,61,98,0.15);
   font-size: 1rem;
 }
 
-.arriba {
-  position: absolute;
-  top: 15px;
-  width: 100%;
-}
-
-/* Login */
-#login {
-  background: rgba(255,255,255,0.92);
-  padding: 20px;
-  border-radius: 14px;
-  width: 90%;
-  max-width: 320px;
-  margin: auto;
-  margin-top: 35vh;
-  text-align: center;
-}
-
-#login input, #login button {
+.password-box button{
+  margin-top: 8px;
   width: 100%;
   padding: 10px;
-  margin-top: 10px;
-}
-
-/* Sitio */
-.hidden { display: none; }
-
-#site {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-}
-
-/* Botones */
-.btn {
-  width: 80px;
-  max-width: 25vw;
+  border: none;
+  border-radius: 8px;
+  background: var(--blue);
+  color: var(--white);
+  font-weight: 600;
   cursor: pointer;
 }
 
+.mensaje {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: var(--blue-dark);
+}
+
+/* Main content box (visual centering) */
+.main{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+/* Botones como imágenes */
+.btn {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Rosa en esquina izquierda (puedes cambiar a right si prefieres) */
 .esquina {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
+  position: fixed;
+  left: 18px;
+  bottom: 18px;
+  width: 78px;
+  max-width: 18vw;
+  z-index: 4;
+  transition: transform .15s ease;
 }
+.esquina:active { transform: scale(.98); }
 
+/* Morado en centro (más grande en móvil) */
 .centro {
-  position: absolute;
-  top: 50%;
+  position: fixed;
   left: 50%;
+  top: 50%;
   transform: translate(-50%, -50%);
+  width: 140px;
+  max-width: 40vw;
+  z-index: 4;
+  transition: transform .15s ease;
 }
+.centro:active { transform: translate(-50%, -50%) scale(.98); }
 
-/* Overlay */
+/* Overlay full screen */
 .overlay {
   position: fixed;
   inset: 0;
-  background: black;
-  z-index: 10;
+  background: rgba(5,10,20,0.92);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
-.full, video {
-  width: 100%;
-  height: 100%;
+/* Ocultar */
+.hidden { display: none; }
+
+/* Media inside overlay (image or video) */
+.overlay-media {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(10,61,98,0.45);
   object-fit: contain;
 }
 
-/* Volver */
+/* Back button */
 .back {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  padding: 10px 14px;
-  background: white;
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 60;
+  background: var(--white);
+  color: var(--blue-dark);
   border: none;
+  padding: 10px 12px;
   border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .password-box { top: 70px; max-width: 92%; }
+  .centro { width: 120px; }
+  .esquina { width: 64px; left: 12px; bottom: 12px; }
+  .top-note { font-size: 0.85rem; }
+}
