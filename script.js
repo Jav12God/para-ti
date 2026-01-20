@@ -1,15 +1,31 @@
-function verCarta() {
-  const contraseñaCorrecta = "teamo"; // cámbiala
-  const input = document.getElementById("password").value;
+function entrar() {
+  const pass = document.getElementById("password").value;
   const mensaje = document.getElementById("mensaje");
-  const pdf = document.getElementById("pdf");
 
-  if (input === contraseñaCorrecta) {
-    mensaje.textContent = "Siempre fuiste tú ❤️";
-    mensaje.style.color = "green";
-    pdf.classList.remove("oculto");
+  if (pass === "172513") {
+    document.getElementById("login").classList.add("oculto");
+    document.getElementById("contenido").classList.remove("oculto");
   } else {
-    mensaje.textContent = "Nope… inténtalo de nuevo, amor 😘";
-    mensaje.style.color = "red";
+    mensaje.textContent = "Suerte la próxima corazón 💙";
+    mensaje.style.color = "blue";
   }
+}
+
+function abrirCarta() {
+  ocultarTodo();
+  document.getElementById("carta").classList.remove("oculto");
+}
+
+function abrirVideo() {
+  ocultarTodo();
+  document.getElementById("video").classList.remove("oculto");
+}
+
+function volver() {
+  ocultarTodo();
+}
+
+function ocultarTodo() {
+  document.getElementById("carta").classList.add("oculto");
+  document.getElementById("video").classList.add("oculto");
 }
