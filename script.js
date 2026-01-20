@@ -1,31 +1,25 @@
-function entrar() {
+function verificar() {
   const pass = document.getElementById("password").value;
-  const mensaje = document.getElementById("mensaje");
+  const msg = document.getElementById("mensaje");
 
   if (pass === "172513") {
-    document.getElementById("login").classList.add("oculto");
-    document.getElementById("contenido").classList.remove("oculto");
+    msg.textContent = "💙";
+    msg.style.color = "blue";
   } else {
-    mensaje.textContent = "Suerte la próxima corazón 💙";
-    mensaje.style.color = "blue";
+    msg.textContent = "Suerte la próxima corazón 💙";
+    msg.style.color = "blue";
   }
 }
 
 function abrirCarta() {
-  ocultarTodo();
   document.getElementById("carta").classList.remove("oculto");
 }
 
 function abrirVideo() {
-  ocultarTodo();
-  document.getElementById("video").classList.remove("oculto");
+  document.getElementById("videoBox").classList.remove("oculto");
 }
 
-function volver() {
-  ocultarTodo();
-}
-
-function ocultarTodo() {
+function cerrar() {
   document.getElementById("carta").classList.add("oculto");
-  document.getElementById("video").classList.add("oculto");
+  document.getElementById("videoBox").classList.add("oculto");
 }
