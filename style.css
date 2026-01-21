@@ -1,163 +1,111 @@
-/* Reset pequeño */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root{
-  --blue-dark: #0a3d62;
-  --blue: #1e90ff;
-  --white: #ffffff;
+* {
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
 }
 
-/* Fondo principal (fallback azul-blanco + imagen) */
 body {
+  margin: 0;
   min-height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--blue-dark);
-  background:
-    linear-gradient(135deg, #e9f4ff 0%, #ffffff 100%),
-    url("Amor/fondo1.jpg") no-repeat center center fixed;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: url("Amor/fondo.jpg") no-repeat center center/cover;
 }
 
-/* Nota superior (pequeña) */
-.top-note {
-  position: fixed;
-  top: 12px;
-  width: 100%;
-  text-align: center;
-  color: var(--blue-dark);
-  font-size: 0.95rem;
-  pointer-events: none;
-  z-index: 5;
-}
-
-/* Caja de contraseña */
-.password-box {
-  position: fixed;
-  top: 55px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255,255,255,0.92);
-  border-radius: 12px;
-  padding: 12px;
-  width: calc(100% - 40px);
-  max-width: 360px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(10, 61, 98, 0.15);
-  z-index: 6;
-}
-
-.password-box input{
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid rgba(10,61,98,0.15);
-  font-size: 1rem;
-}
-
-.password-box button{
-  margin-top: 8px;
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  background: var(--blue);
-  color: var(--white);
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.mensaje {
-  margin-top: 8px;
-  font-size: 0.95rem;
-  color: var(--blue-dark);
-}
-
-/* Main content box (visual centering) */
-.main{
-  width: 100%;
-  height: 100vh;
-  position: relative;
-}
-
-/* Botones como imágenes */
-.btn {
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-drag: none;
-}
-
-/* Rosa en esquina izquierda (puedes cambiar a right si prefieres) */
-.esquina {
-  position: fixed;
-  left: 18px;
-  bottom: 18px;
-  width: 78px;
-  max-width: 18vw;
-  z-index: 4;
-  transition: transform .15s ease;
-}
-.esquina:active { transform: scale(.98); }
-
-/* Morado en centro (más grande en móvil) */
-.centro {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 140px;
-  max-width: 40vw;
-  z-index: 4;
-  transition: transform .15s ease;
-}
-.centro:active { transform: translate(-50%, -50%) scale(.98); }
-
-/* Overlay full screen */
 .overlay {
+  background: rgba(0,0,0,0.55);
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.buttons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.buttons img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.buttons img:hover {
+  transform: scale(1.1);
+}
+
+.password-box {
+  background: rgba(255,255,255,0.15);
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 300px;
+  margin: auto;
+}
+
+.password-box input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.password-box button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: #ff5fa2;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#message {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+/* Modal */
+.modal {
+  display: none;
   position: fixed;
   inset: 0;
-  background: rgba(5,10,20,0.92);
-  z-index: 50;
-  display: flex;
-  align-items: center;
+  background: rgba(0,0,0,0.8);
   justify-content: center;
-  padding: 20px;
+  align-items: center;
 }
 
-/* Ocultar */
-.hidden { display: none; }
-
-/* Media inside overlay (image or video) */
-.overlay-media {
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 12px;
-  box-shadow: 0 20px 50px rgba(10,61,98,0.45);
-  object-fit: contain;
+.modal-content {
+  background: black;
+  padding: 15px;
+  border-radius: 15px;
+  max-width: 90%;
+  max-height: 90%;
 }
 
-/* Back button */
-.back {
-  position: fixed;
-  top: 18px;
-  left: 18px;
-  z-index: 60;
-  background: var(--white);
-  color: var(--blue-dark);
-  border: none;
-  padding: 10px 12px;
+.modal-content img,
+.modal-content video {
+  width: 100%;
   border-radius: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
-/* Responsive tweaks */
-@media (max-width: 480px) {
-  .password-box { top: 70px; max-width: 92%; }
-  .centro { width: 120px; }
-  .esquina { width: 64px; left: 12px; bottom: 12px; }
-  .top-note { font-size: 0.85rem; }
+.close {
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  float: right;
 }
