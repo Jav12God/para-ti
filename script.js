@@ -1,66 +1,48 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const btnPassword = document.getElementById("btnPassword");
-  const inputPassword = document.getElementById("password");
-  const mensaje = document.getElementById("mensaje");
+const correctPassword = "132518";
+const messages = [
+  "Sigue intentando amor 💕",
+  "Estuviste cerca 😘",
+  "Tú puedes mi vida 💖",
+  "Inténtalo otra vez 🥰"
+];
 
-  const btnCarta = document.getElementById("btnCarta");
-  const btnVideo = document.getElementById("btnVideo");
+function checkPassword() {
+  const input = document.getElementById("password").value;
+  const message = document.getElementById("message");
 
-  const cartView = document.getElementById("cartView");
-  const videoView = document.getElementById("videoView");
+  if (input === correctPassword) {
+    window.open("Amor/carta.pdf", "_blank");
+    message.textContent = "Contraseña correcta 💌";
+  } else {
+    const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+    message.textContent = randomMsg;
+  }
+}
 
-  const closeCart = document.getElementById("closeCart");
-  const closeVideo = document.getElementById("closeVideo");
+function openMedia(type) {
+  const modal = document.getElementById("modal");
+  const body = document.getElementById("modal-body");
 
-  const videoPlayer = document.getElementById("videoPlayer");
+  body.innerHTML = "";
 
-  // Contraseña: solo muestra mensaje (todo visible al abrir el sitio)
-  btnPassword.addEventListener("click", () => {
-    const pass = inputPassword.value.trim();
-    if (pass === "172513") {
-      mensaje.textContent = "oye amor… ahora sí 😘";
-      mensaje.style.color = "blue";
-    } else {
-      mensaje.textContent = "suerte la próxima corazón 💙";
-      mensaje.style.color = "blue";
-    }
-  });
+  if (type === "video") {
+    body.innerHTML = `
+      <video controls autoplay>
+        <source src="Amor/Morado1.webm" type="video/webm">
+      </video>`;
+  }
 
-  // Abrir carta (overlay)
-  btnCarta.addEventListener("click", () => {
-    cartView.classList.remove("hidden");
-  });
+  if (type === "gif") {
+    body.innerHTML = `<img src="Amor/marcianos.gif">`;
+  }
 
-  // Abrir video (overlay + play). user gesture from click allows playback with sound.
-  btnVideo.addEventListener("click", () => {
-    videoView.classList.remove("hidden");
-    // ensure playback starts from 0
-    try {
-      videoPlayer.currentTime = 0;
-      videoPlayer.play();
-    } catch (e) {
-      // some browsers block auto-play with sound until user interacts; but this is triggered by click so should be fine
-      console.warn("No se pudo reproducir automáticamente:", e);
-    }
-  });
+  if (type === "image") {
+    body.innerHTML = `<img src="Amor/cart.png">`;
+  }
 
-  // Cerrar cart
-  closeCart.addEventListener("click", () => {
-    cartView.classList.add("hidden");
-  });
+  modal.style.display = "flex";
+}
 
-  // Cerrar video (pause + reset)
-  closeVideo.addEventListener("click", () => {
-    videoPlayer.pause();
-    try { videoPlayer.currentTime = 0; } catch(e){}
-    videoView.classList.add("hidden");
-  });
-
-  // Hide overlays if user taps outside media (optional)
-  cartView.addEventListener("click", (e) => {
-    if (e.target === cartView) closeCart.click();
-  });
-  videoView.addEventListener("click", (e) => {
-    if (e.target === videoView) closeVideo.click();
-  });
-});
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
