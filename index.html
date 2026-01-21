@@ -1,49 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Para ti 💙</title>
-  <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para Mi Amor 💕</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Mensajito juguetón -->
-  <div class="top-note">oye amor… te paso la contraseña si me das un beso 😘</div>
+  <div class="overlay">
+    <h1>Para ti, mi amor 💖</h1>
 
-  <!-- Caja contraseña -->
-  <div class="password-box">
-    <input type="password" id="password" placeholder="Contraseña">
-    <button id="btnPassword">Entrar</button>
-    <p id="mensaje" class="mensaje"></p>
+    <div class="buttons">
+      <button onclick="openMedia('video')">
+        <img src="Amor/morado.png" alt="Morado">
+      </button>
+
+      <button onclick="openMedia('gif')">
+        <img src="Amor/platillo volador.png" alt="Platillo">
+      </button>
+
+      <button onclick="openMedia('image')">
+        <img src="Amor/rosa.png" alt="Rosa">
+      </button>
+    </div>
+
+    <div class="password-box">
+      <p>Ingresa la contraseña secreta 💌</p>
+      <input type="password" id="password" placeholder="Contraseña">
+      <button onclick="checkPassword()">Entrar</button>
+      <p id="message"></p>
+    </div>
   </div>
 
-  <!-- CONTENIDO VISIBLE AL ABRIR (botones y cosas) -->
-  <div id="main" class="main">
-
-    <!-- Botón rosa: esquina -->
-    <img src="Amor/rosa.png" alt="Carta" id="btnCarta" class="btn esquina" title="Ver carta">
-
-    <!-- Botón morado: centro -->
-    <img src="Amor/morado.png" alt="Video" id="btnVideo" class="btn centro" title="Ver video">
-
+  <!-- Modal -->
+  <div id="modal" class="modal" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <span class="close" onclick="closeModal()">×</span>
+      <div id="modal-body"></div>
+    </div>
   </div>
 
-  <!-- Overlay: CART -->
-  <div id="cartView" class="overlay hidden">
-    <button class="back" id="closeCart">← volver</button>
-    <img src="Amor/cart.png" alt="Cart" class="overlay-media">
-  </div>
-
-  <!-- Overlay: VIDEO -->
-  <div id="videoView" class="overlay hidden">
-    <button class="back" id="closeVideo">← volver</button>
-    <video id="videoPlayer" class="overlay-media" playsinline controls>
-      <source src="Amor/Morado1.webm" type="video/webm">
-      Tu navegador no soporta este video.
-    </video>
-  </div>
-
-  <script src="./script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
